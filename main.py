@@ -138,6 +138,9 @@ def import_folder(path):
 
 
 class Level:
+    """
+    This class contains setup, animation and running functions for whole game
+    """
     def __init__(self):
         # get display surface
         self.display_surface = pygame.display.get_surface()
@@ -165,9 +168,8 @@ class Level:
 
     def create_map(self):
         """
-        This function display all the  sprites in the map
+        This function display all the sprites in the map
         """
-
         layout = {
             'boundary': import_csv_layout('map/map_FloorBlocks.csv'),
             'grass': import_csv_layout('map/map_Grass.csv'),
@@ -312,7 +314,10 @@ class Level:
 
 
 class YSortCameraGroup(pygame.sprite.Group):
-    # move the display camera and place the player in the center according to Y axis
+    """
+    This class moves camera to track the movement of player in y axis
+    """
+
     def __init__(self):
         super().__init__()
         self.display_surface = pygame.display.get_surface()
@@ -348,6 +353,9 @@ class YSortCameraGroup(pygame.sprite.Group):
 
 
 class Tile(pygame.sprite.Sprite):
+    """
+    This class position sprites and initialize hitbox
+    """
     def __init__(self, pos, groups, sprite_type, surface=pygame.Surface((TILESIZE, TILESIZE))):
         super().__init__(groups)
 
@@ -412,6 +420,9 @@ class Entity(pygame.sprite.Sprite):
 
 
 class Player(Entity):
+    """
+    This class contains functions for player, including move, attack, magic, etc
+    """
     def __init__(self, pos, groups, obstacle_sprites, create_attack, destroy_attack, create_magic):
         super().__init__(groups)
         self.image = pygame.image.load('graphics/player.png').convert_alpha()
@@ -646,6 +657,9 @@ class Player(Entity):
 
 
 class Enemy(Entity):
+    """
+    This class contain functions for enemy, including move, attack, get damaged and interact with player, etc
+    """
     def __init__(self, monster_name, pos, groups, obstacle_sprites, damage_player, trigger_death_particles, add_exp):
         # general setup
         super().__init__(groups)
@@ -817,6 +831,9 @@ class Enemy(Entity):
 
 
 class Weapon(pygame.sprite.Sprite):
+    """
+    This class load weapon images and display it according to the status of player
+    """
     def __init__(self, player, groups):
         super().__init__(groups)
         self.sprite_type = 'weapon'
@@ -839,7 +856,8 @@ class Weapon(pygame.sprite.Sprite):
 
 class UI:
     """
-    health and energy bar display settings
+    This class set up the UI, including health and energy bar display, weapon and magic box,
+    exp display surface
     """
 
     def __init__(self):
@@ -928,6 +946,9 @@ class UI:
 
 
 class AnimationPlayer:
+    """
+    This class contains frames for all the sprites
+    """
     def __init__(self):
         self.frames = {
             # magic
@@ -986,6 +1007,9 @@ class AnimationPlayer:
 
 
 class ParticleEffect(pygame.sprite.Sprite):
+    """
+    This class contains particle effect for sprites
+    """
     def __init__(self, pos, animation_frames, groups):
         super().__init__(groups)
         self.sprite_type = 'magic'
@@ -1007,7 +1031,9 @@ class ParticleEffect(pygame.sprite.Sprite):
 
 
 class MagicPlayer:
-    # magic effect for player
+    """
+    This class contains functions for the play to execute magic
+    """
     def __init__(self, animation_player):
         self.animation_player = animation_player
         self.sounds = {
@@ -1058,6 +1084,9 @@ class MagicPlayer:
 
 
 class Upgrade:
+    """
+    This class contains functions for upgrade UI display
+    """
     def __init__(self, player):
         # general setup
         self.display_surface = pygame.display.get_surface()
@@ -1136,6 +1165,9 @@ class Upgrade:
 
 
 class Item:
+    """
+    This class contains functions for player to use exp for upgrade
+    """
     def __init__(self, l, t, w, h, index, font):
         self.rect = pygame.Rect(l, t, w, h)
         self.index = index
@@ -1196,6 +1228,9 @@ class Item:
 
 
 class Game:
+    """
+    This class runs game, plays the music, and pauses the game when necessary
+    """
     def __init__(self):
         # general setup
         pygame.init()
