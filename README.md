@@ -1,7 +1,9 @@
 # Ninja Adventure
 
-Welcome to the repository for "Ninja Adventure," the final project developed for EN.540.635 Software Carpentry FA2023.
+Welcome to the repository for "Ninja Adventure," the final project developed for EN.540.635 Software Carpentry FA2023.   
 
+![Ninja Adventure UI](img.png)
+_Main game interface with character, HP/Energy, weapons, and EXP display._
 ## Collaborator
 - Wen Zhang (KkkelseyWen): wzhan156@jh.edu
 
@@ -52,14 +54,18 @@ The game boasts a user-friendly interface:
 - **Raccoon**: The ultimate boss of the game.
 
 ### Screenshots
-![Ninja Adventure UI](img.png)
-_Main game interface with character, HP/Energy, weapons, and EXP display._
 
+- **Upgrade UI**
 ![Upgrade UI](img_1.png)
-_The upgrade user interface._
+_The upgrade user interface._   
 
+
+- **Weapons**   
 ![Weapons](img_6.png) ![Axe](img_2.png) ![Lance](img_3.png) ![Rapier](img_4.png) ![Sai](img_5.png)   
-_Various weapons available in the game._
+_Various weapons available in the game._   
+
+
+- **Monsters**   
 
 ![Monsters](img_7.png) ![Spirit](img_9.png) ![Squid](img_10.png) ![Raccoon](img_8.png)   
 _The diverse range of monsters encountered in "Ninja Adventure."_
